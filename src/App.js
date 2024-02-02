@@ -110,24 +110,47 @@ const initialExchanges = [
 ]
 
 const App = () => {
-  const [selectedCurrency, setSelectedCurrency] = useState(null);
+  const [selectedOriginCurrency, setSelectedOriginCurrency] = useState(null);
+  const [selectedDestinationCurrency, setSelectedDestinationCurrency] = useState(null);
   const [exchanges, setExchanges] = useState(initialExchanges)
 
-  const handleSelectCurrency = (currency) => {
-    setSelectedCurrency(currency);
+  const handleSelectOriginCurrency = (currency) => {
+    setSelectedOriginCurrency(currency);
     // Puedes realizar acciones adicionales cuando se selecciona una moneda, si es necesario.
   };
 
+  const handleSelectDestinationCurrency = (currency) => {
+    setSelectedDestinationCurrency(currency);
+    // Puedes realizar acciones adicionales cuando se selecciona una moneda, si es necesario.
+  };
+
+
   return (
     <div>
-      <h1>Selected Currency: {selectedCurrency}</h1>
-      {selectedCurrency &&
+      <h1>Selected Currency: {selectedOriginCurrency}</h1>
+      {selectedOriginCurrency &&
         <img
-          alt={selectedCurrency}
-          src={"/flags/" + currencies[selectedCurrency].flag}>
+          alt={selectedOriginCurrency}
+          src={"/flags/" + currencies[selectedOriginCurrency].flag}>
         </img>
       }
-      <CurrencyComboBox currencies={currencies} onSelectCurrency={handleSelectCurrency} />
+      <CurrencyComboBox
+        currencies={currencies}
+        onSelectCurrency={handleSelectOriginCurrency}
+        label={"Origin Currency:"}
+      />
+      <h1>Selected Currency: {selectedDestinationCurrency}</h1>
+      {selectedDestinationCurrency &&
+        <img
+          alt={selectedDestinationCurrency}
+          src={"/flags/" + currencies[selectedDestinationCurrency].flag}>
+        </img>
+      }
+      <CurrencyComboBox
+        currencies={currencies}
+        onSelectCurrency={handleSelectDestinationCurrency}
+        label="Destination currency:"
+      />
     </div>
   );
 };

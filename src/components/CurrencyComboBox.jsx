@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 
-const CurrencyComboBox = ({ currencies, onSelectCurrency }) => {
+const CurrencyComboBox = ({ currencies, onSelectCurrency, label }) => {
   const [selectedCurrency, setSelectedCurrency] = useState(Object.keys(currencies)[0]);
 
   const handleCurrencyChange = (event) => {
@@ -11,7 +11,7 @@ const CurrencyComboBox = ({ currencies, onSelectCurrency }) => {
 
   return (
     <div>
-      <label>Select a Currency:</label>
+      <label>{label}</label>
       <select value={selectedCurrency} onChange={handleCurrencyChange}>
         {Object.keys(currencies).map((currencyCode) => (
           <option key={currencyCode} value={currencyCode}>
