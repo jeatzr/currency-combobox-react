@@ -131,7 +131,7 @@ const App = () => {
       {selectedOriginCurrency &&
         <img
           alt={selectedOriginCurrency}
-          src={"/flags/" + currencies[selectedOriginCurrency].flag}>
+          src={"/img/flags/" + currencies[selectedOriginCurrency].flag}>
         </img>
       }
       <CurrencyComboBox
@@ -143,7 +143,7 @@ const App = () => {
       {selectedDestinationCurrency &&
         <img
           alt={selectedDestinationCurrency}
-          src={"/flags/" + currencies[selectedDestinationCurrency].flag}>
+          src={"/img/flags/" + currencies[selectedDestinationCurrency].flag}>
         </img>
       }
       <CurrencyComboBox
