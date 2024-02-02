@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import CurrencyComboBox from './components/CurrencyComboBox'; // Ajusta la ruta según la estructura de carpetas de tu proyecto
-
+import CurrencyComboBoxCustom from './components/CurrencyComboBoxCustom';
 const currencies = {
   "USD": {
     "emoji": "\uD83C\uDDFA\uD83C\uDDF8",
@@ -146,13 +146,16 @@ const App = () => {
           src={"/img/flags/" + currencies[selectedDestinationCurrency].flag}>
         </img>
       }
-      <CurrencyComboBox
+      <CurrencyComboBoxCustom
         currencies={currencies}
         onSelectCurrency={handleSelectDestinationCurrency}
         label="Destination currency:"
       />
     </div>
   );
+
+
+
 };
 
 export default App;
